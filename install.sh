@@ -3,7 +3,6 @@ set -euo pipefail
 
 REPO="smitmartijn/claude-skills"
 BRANCH="main"
-BASE_URL="https://raw.githubusercontent.com/$REPO/$BRANCH"
 SKILLS_DIR="$HOME/.claude/skills"
 
 usage() {
@@ -18,28 +17,43 @@ usage() {
   exit 1
 }
 
+fetch_archive() {
+  local tmpdir
+  tmpdir=$(mktemp -d)
+  curl -sL "https://github.com/$REPO/archive/$BRANCH.tar.gz" | tar -xz -C "$tmpdir"
+  ARCHIVE_DIR="$tmpdir"/*/
+  echo "$tmpdir"
+}
+
 available_skills() {
-  curl -sL "https://api.github.com/repos/$REPO/contents?ref=$BRANCH" \
-    | grep '"name"' \
-    | grep -v -E '"(README|install|LICENSE|\.)' \
-    | sed 's/.*"name": "//;s/".*//'
+  local tmpdir
+  tmpdir=$(fetch_archive)
+  for dir in "$tmpdir"/*/*/; do
+    local name
+    name=$(basename "$dir")
+    if [ -f "$dir/SKILL.md" ]; then
+      echo "$name"
+    fi
+  done
+  rm -rf "$tmpdir"
 }
 
 install_skill() {
   local skill="$1"
-  local url="$BASE_URL/$skill/SKILL.md"
+  local src="$ARCHIVE_DIR/$skill"
   local dest="$SKILLS_DIR/$skill"
 
-  local http_code
-  http_code=$(curl -sL -o /dev/null -w '%{http_code}' "$url")
-  if [ "$http_code" != "200" ]; then
+  if [ ! -d "$src" ] || [ ! -f "$src/SKILL.md" ]; then
     echo "error: skill '$skill' not found in repo" >&2
     return 1
   fi
 
+  rm -rf "$dest"
   mkdir -p "$dest"
-  curl -sL "$url" -o "$dest/SKILL.md"
-  echo "installed: $skill -> $dest/SKILL.md"
+  cp -R "$src"/* "$dest"/
+  local file_count
+  file_count=$(find "$dest" -type f | wc -l | tr -d ' ')
+  echo "installed: $skill -> $dest/ ($file_count files)"
 }
 
 if [ $# -eq 0 ]; then
@@ -57,11 +71,18 @@ case "$1" in
     done
     ;;
   --all)
-    available_skills | while read -r skill; do
-      install_skill "$skill"
+    tmpdir=$(fetch_archive)
+    trap 'rm -rf "$tmpdir"' EXIT
+    for dir in "$tmpdir"/*/*/; do
+      skill=$(basename "$dir")
+      if [ -f "$dir/SKILL.md" ]; then
+        install_skill "$skill"
+      fi
     done
     ;;
   *)
+    tmpdir=$(fetch_archive)
+    trap 'rm -rf "$tmpdir"' EXIT
     for skill in "$@"; do
       install_skill "$skill"
     done
