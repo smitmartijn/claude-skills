@@ -1,0 +1,21 @@
+{
+  "name": "face-zoom",
+  "description": "Full-bleed frame with gradient bottom overlay and large curiosity/question hook.",
+  "template": "face-zoom.html",
+  "palette": {
+    "text": "#FFFFFF",
+    "shadow": "rgba(0,0,0,0.85)",
+    "accent": "#FFD400"
+  },
+  "fonts": {
+    "primary": "Bebas Neue",
+    "secondary": "Inter"
+  },
+  "hook_pattern": "question",
+  "hook_max_words": 7,
+  "supports_subhook": false,
+  "roles": {
+    "text": ["text"],
+    "accent": ["accent"]
+  }
+}

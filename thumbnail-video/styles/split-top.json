@@ -1,0 +1,22 @@
+{
+  "name": "split-top",
+  "description": "Bold colored bar across top with tutorial title; frame fills the rest.",
+  "template": "split-top.html",
+  "palette": {
+    "bar_bg": "#1565C0",
+    "bar_text": "#FFFFFF",
+    "bar_accent": "#FFD400"
+  },
+  "fonts": {
+    "primary": "Archivo Black",
+    "secondary": "Inter"
+  },
+  "hook_pattern": "tutorial",
+  "hook_max_words": 8,
+  "supports_subhook": false,
+  "roles": {
+    "text": ["bar_text"],
+    "accent": ["bar_accent"],
+    "bg": ["bar_bg"]
+  }
+}

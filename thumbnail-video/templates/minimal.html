@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: #000; }
+  .stage {
+    position: relative; width: 1280px; height: 720px;
+    background: url("{{FRAME}}") center/cover no-repeat;
+  }
+  .label {
+    position: absolute; left: 48px; bottom: 48px;
+    background: {{LABEL_BG}};
+    color: {{LABEL_TEXT}};
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800; font-size: 64px; letter-spacing: -1px;
+    padding: 24px 36px;
+    border-radius: 14px;
+    border-left: 10px solid {{LABEL_ACCENT}};
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+    text-transform: uppercase;
+  }
+</style></head>
+<body>
+  <div class="stage">
+    <div class="label">{{HOOK}}</div>
+  </div>
+</body></html>

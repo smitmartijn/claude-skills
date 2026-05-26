@@ -1,0 +1,24 @@
+{
+  "name": "bold-left",
+  "description": "Huge yellow text on left third, frame on right two-thirds. High contrast benefit/promise tone.",
+  "template": "bold-left.html",
+  "palette": {
+    "bg": "#0B0B0F",
+    "text": "#FFEB3B",
+    "subtext": "#FFFFFF",
+    "accent": "#FF3D71"
+  },
+  "fonts": {
+    "primary": "Anton",
+    "secondary": "Inter"
+  },
+  "hook_pattern": "benefit",
+  "hook_max_words": 5,
+  "subhook_max_words": 4,
+  "supports_subhook": true,
+  "roles": {
+    "text": ["text"],
+    "accent": ["accent"],
+    "bg": ["bg"]
+  }
+}

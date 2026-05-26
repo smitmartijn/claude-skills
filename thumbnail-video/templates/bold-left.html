@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@700;900&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: {{BG}}; }
+  .stage { position: relative; width: 1280px; height: 720px; display: flex; }
+  .panel {
+    width: 488px; height: 720px;
+    background: {{BG}};
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 60px 48px;
+    position: relative; z-index: 2;
+  }
+  .panel::after {
+    content: ''; position: absolute; top: 0; right: -24px; width: 24px; height: 720px;
+    background: {{ACCENT}};
+  }
+  .hook {
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 96px; line-height: 0.92; letter-spacing: -1px;
+    color: {{TEXT}};
+    text-transform: uppercase;
+    text-shadow: 0 6px 0 rgba(0,0,0,0.35), 0 12px 24px rgba(0,0,0,0.45);
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .subhook {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 900; font-size: 36px; line-height: 1.15;
+    color: {{SUBTEXT}};
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 28px;
+    opacity: 0.95;
+  }
+  .frame {
+    position: absolute; left: 488px; top: 0;
+    width: 792px; height: 720px;
+    background: url("{{FRAME}}") center/cover no-repeat;
+  }
+  .frame::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(11,11,15,0.55) 0%, rgba(11,11,15,0) 30%);
+  }
+</style></head>
+<body>
+  <div class="stage">
+    <div class="panel">
+      <div class="hook">{{HOOK}}</div>
+      {{SUBHOOK_BLOCK}}
+    </div>
+    <div class="frame"></div>
+  </div>
+</body></html>

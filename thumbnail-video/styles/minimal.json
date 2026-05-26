@@ -1,0 +1,22 @@
+{
+  "name": "minimal",
+  "description": "Full-bleed frame, small label in corner. Lets the frame speak.",
+  "template": "minimal.html",
+  "palette": {
+    "label_bg": "rgba(11,11,15,0.85)",
+    "label_text": "#FFFFFF",
+    "label_accent": "#FFD400"
+  },
+  "fonts": {
+    "primary": "Inter",
+    "secondary": "Inter"
+  },
+  "hook_pattern": "curiosity",
+  "hook_max_words": 3,
+  "supports_subhook": false,
+  "roles": {
+    "text": ["label_text"],
+    "accent": ["label_accent"],
+    "bg": ["label_bg"]
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: #000; }
+  .stage { position: relative; width: 1280px; height: 720px; }
+  .bar {
+    position: absolute; left: 0; right: 0; top: 0; height: 200px;
+    background: {{BAR_BG}};
+    display: flex; align-items: center; padding: 0 64px;
+    border-bottom: 8px solid {{BAR_ACCENT}};
+  }
+  .hook {
+    font-family: 'Archivo Black', Impact, sans-serif;
+    font-size: 88px; line-height: 0.95; letter-spacing: -1px;
+    color: {{BAR_TEXT}};
+    text-transform: uppercase;
+    text-shadow: 0 4px 0 rgba(0,0,0,0.25);
+  }
+  .frame {
+    position: absolute; left: 0; right: 0; top: 200px; bottom: 0;
+    background: url("{{FRAME}}") center/cover no-repeat;
+  }
+</style></head>
+<body>
+  <div class="stage">
+    <div class="bar"><div class="hook">{{HOOK}}</div></div>
+    <div class="frame"></div>
+  </div>
+</body></html>

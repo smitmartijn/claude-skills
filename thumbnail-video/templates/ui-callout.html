@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@600;800&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: #000; }
+  .stage {
+    position: relative; width: 1280px; height: 720px;
+    background: url("{{FRAME}}") center/cover no-repeat;
+  }
+  .badge {
+    position: absolute; top: 44px; right: 44px;
+    background: {{BADGE_BG}};
+    color: {{BADGE_TEXT}};
+    font-family: 'Archivo Black', Impact, sans-serif;
+    font-size: 64px; letter-spacing: 2px;
+    padding: 18px 32px;
+    transform: rotate(-6deg);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.95);
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+  .band {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: {{BAND_BG}};
+    padding: 28px 56px 32px;
+    backdrop-filter: blur(6px);
+    border-top: 6px solid {{BAND_ACCENT}};
+  }
+  .hook {
+    font-family: 'Archivo Black', Impact, sans-serif;
+    font-size: 76px; line-height: 1.0; letter-spacing: -0.5px;
+    color: {{BAND_TEXT}};
+    text-transform: uppercase;
+  }
+  .subhook {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600; font-size: 30px;
+    color: {{BAND_ACCENT}};
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-top: 12px;
+  }
+</style></head>
+<body>
+  <div class="stage">
+    <div class="badge">{{BADGE_LABEL}}</div>
+    <div class="band">
+      <div class="hook">{{HOOK}}</div>
+      {{SUBHOOK_BLOCK}}
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,26 @@
+{
+  "name": "ui-callout",
+  "description": "Full-bleed UI screenshot, corner NEW badge, bottom feature-label band.",
+  "template": "ui-callout.html",
+  "palette": {
+    "badge_bg": "#FF3D71",
+    "badge_text": "#FFFFFF",
+    "band_bg": "rgba(11,11,15,0.92)",
+    "band_text": "#FFFFFF",
+    "band_accent": "#FFD400"
+  },
+  "fonts": {
+    "primary": "Archivo Black",
+    "secondary": "Inter"
+  },
+  "hook_pattern": "feature",
+  "hook_max_words": 5,
+  "subhook_max_words": 4,
+  "supports_subhook": true,
+  "badge_label": "NEW",
+  "roles": {
+    "text": ["band_text"],
+    "accent": ["badge_bg", "band_accent"],
+    "bg": ["band_bg"]
+  }
+}

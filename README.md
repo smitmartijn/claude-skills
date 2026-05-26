@@ -7,6 +7,7 @@ A collection of skills for [Claude Code](https://docs.anthropic.com/en/docs/clau
 | Skill | Description |
 |-------|-------------|
 | [transcribe-video](transcribe-video/) | Transcribe video/audio to plain text using ffmpeg + whisper. Fast on Apple Silicon. |
+| [thumbnail-video](thumbnail-video/) | Generate YouTube thumbnail variants with scene detection, HTML/CSS templates, and headless Chrome. |
 
 ## Installation
 
